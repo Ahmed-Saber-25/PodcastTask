@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SplashFragment">
+
+    <action
+        android:id="@+id/HomeFragmentNavigation"
+        app:destination="@id/HomeFragment"
+        app:popUpTo="@id/nav_graph" />
+    <action
+        android:id="@+id/SearchFragmentNavigation"
+        app:destination="@id/SearchFragment"
+        app:popUpTo="@id/nav_graph" />
+    <action
+        android:id="@+id/LibraryFragmentNavigation"
+        app:destination="@id/LibraryFragment"
+        app:popUpTo="@id/nav_graph" />
+    <fragment
+        android:id="@+id/SplashFragment"
+        android:name="com.thmanyah.podcast.presentation.ui.splash.SplashFragment"
+        android:label="Intro Fragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_SplashFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_SplashFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.thmanyah.podcast.presentation.ui.login.LoginFragment"
+        android:label="Intro Fragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_To_HomeFragment"
+            app:destination="@id/HomeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.thmanyah.podcast.presentation.ui.bottom_navigation.home.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/LibraryFragment"
+        android:name="com.thmanyah.podcast.presentation.ui.bottom_navigation.library.LibraryFragment"
+        android:label="Library Fragment"
+        tools:layout="@layout/fragment_library" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.thmanyah.podcast.presentation.ui.bottom_navigation.search.SearchFragment"
+        android:label="Search Fragment"
+        tools:layout="@layout/fragment_search" >
+
+    </fragment>
+
+</navigation>

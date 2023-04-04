@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fieldTitle"
+            type="String" />
+
+        <variable
+            name="errorMSG"
+            type="String" />
+
+        <variable
+            name="leftIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="isVisible"
+            type="Boolean" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="isEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isPhoneField"
+            type="Boolean" />
+
+        <variable
+            name="isError"
+            type="Boolean" />
+
+        <variable
+            name="inputType"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_regular"
+            android:text="@{fieldTitle}"
+            android:textSize="13sp"
+            tools:text="@string/email" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/backgroundImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@{isError?@drawable/border_rounded_error:@drawable/border_rounded_white}"
+            app:cardElevation="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+
+            >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            >
+
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:background="@color/edit_text_color"
+                android:cursorVisible="@{isEnabled==null||isEnabled}"
+                android:focusable="@{isEnabled==null||isEnabled}"
+                android:focusableInTouchMode="@{isEnabled==null||isEnabled}"
+                android:fontFamily="@font/almarai_regular"
+                android:hint="@{hint}"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/text_color"
+                tools:text="ahmed"
+                android:textColorHint="@color/hint_color"
+                android:textSize="16sp"
+                app:inputType="@{inputType}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ic_left"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ic_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp"
+                android:src="@{leftIcon}"
+                android:visibility="@{isVisible?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:tint="@{isError?@color/error_tint_color:@color/normal_color}"
+                tools:src="@drawable/ic_email"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_regular"
+            android:textColor="@color/error_tint_color"
+            app:visibility="@{isError}"
+            android:textSize="12sp"
+            android:text="@{errorMSG}"
+            tools:text="@string/email_error_msg"/>
+
+    </LinearLayout>
+</layout>

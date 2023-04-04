@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="tabIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="tabTitle"
+            type="String" />
+
+        <variable
+            name="isSelected"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:orientation="vertical"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src = "@drawable/ic_home"
+            android:src = "@{tabIcon}"
+            android:layout_gravity="center"
+            android:tint="@{isSelected?@color/tab_selected:@color/tab_unselected}"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_regular"
+            android:textSize="@dimen/_9sdp"
+            tools:text="Schedule"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{tabTitle}"
+            android:layout_gravity="center"
+            android:textColor="@{isSelected?@color/tab_selected:@color/tab_unselected}"
+            />
+
+
+    </LinearLayout>
+</layout>

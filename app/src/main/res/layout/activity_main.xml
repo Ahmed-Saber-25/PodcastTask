@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isAppBarVisible"
+            type="boolean" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <fragment
+            android:id="@+id/nav_host_fragment_content_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
+        <LinearLayout
+            android:id="@+id/bottomNavigationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            tools:visibility="gone"
+            android:visibility="@{isAppBarVisible?View.VISIBLE:View.GONE}">
+
+            <include
+                android:id="@+id/homeTabLayout"
+                app:tabTitle="@{@string/home}"
+                app:tabIcon="@{@drawable/ic_home}"
+                app:isSelected="@{true}"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight="1"
+                layout="@layout/navigation_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp" />
+
+            <include
+                android:id="@+id/searchTabLayout"
+                app:tabTitle="@{@string/search}"
+                app:tabIcon="@{@drawable/ic_search}"
+                app:isSelected="@{false}"
+                android:layout_weight="1"
+                layout="@layout/navigation_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp" />
+
+            <include
+                android:id="@+id/libraryTabLayout"
+                app:tabTitle="@{@string/library}"
+                app:tabIcon="@{@drawable/ic_library}"
+                app:isSelected="@{false}"
+                android:layout_weight="1"
+                layout="@layout/navigation_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

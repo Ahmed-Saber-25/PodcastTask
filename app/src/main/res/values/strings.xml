@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Podcast Task</string>
+    <string name="no_internet_connection">no internet connection please check your connection and try again</string>
+    <string name="login_txt">Login</string>
+    <string name="email">User Email</string>
+    <string name="enter_email">Enter Your Email</string>
+    <string name="password">User Password</string>
+    <string name="enter_password">Enter Your Password</string>
+    <string name="email_error_msg">You need to enter Valid Email first to Login</string>
+    <string name="password_error_msg">You need to enter Valid Password first to Login</string>
+
+    <string name="type_email" translatable="false">email</string>
+    <string name="type_password" translatable="false">password</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
+    <string name="loading">Loading...</string>
+    <string name="back">Back</string>
+</resources>
