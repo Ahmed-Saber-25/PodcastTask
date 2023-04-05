@@ -1,0 +1,1 @@
+C:\my_work_projects\PodcastTask\buildSrc\build\classes\kotlin\main\Android.class;C:\my_work_projects\PodcastTask\buildSrc\build\classes\kotlin\main\Versions.class
